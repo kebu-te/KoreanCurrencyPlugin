@@ -34,7 +34,7 @@ jobs:
         jar cf KoreanCurrency.jar *
 
     - name: 결과 아티팩트 업로드
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: KoreanCurrency.jar
         path: build/KoreanCurrency.jar
