@@ -1,0 +1,12 @@
+name: KoreanCurrency
+version: 1.0
+main: com.example.koreancurrency.KoreanCurrency
+commands:
+  잔액확인:
+    description: 잔액을 확인합니다.
+  출금:
+    description: 수표를 발행하여 출금합니다.
+  송금:
+    description: 다른 플레이어에게 금액을 송금합니다.
+  입금:
+    description: 플레이어에게 금액을 입금합니다.
