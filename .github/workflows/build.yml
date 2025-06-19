@@ -1,0 +1,40 @@
+name: Build Plugin
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 저장소 체크아웃
+      uses: actions/checkout@v3
+
+    - name: Java 설정
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
+    - name: 디렉토리 준비
+      run: mkdir -p build
+
+    - name: 컴파일
+      run: javac -d build $(find src -name "*.java")
+
+    - name: plugin.yml 복사
+      run: cp plugin.yml build/
+
+    - name: JAR 생성
+      run: |
+        cd build
+        jar cf KoreanCurrency.jar *
+
+    - name: 결과 아티팩트 업로드
+      uses: actions/upload-artifact@v3
+      with:
+        name: KoreanCurrency.jar
+        path: build/KoreanCurrency.jar
