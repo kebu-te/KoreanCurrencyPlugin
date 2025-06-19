@@ -19,10 +19,10 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Spigot API 다운로드
+    - name: 안정적인 Spigot API 다운로드
       run: |
         mkdir -p lib
-        curl -L -o lib/spigot-api.jar https://hub.spigotmc.org/nexus/content/repositories/snapshots/org/spigotmc/spigot-api/1.16.5-R0.1-SNAPSHOT/spigot-api-1.16.5-R0.1-20210309.121516-17.jar
+        curl -L -o lib/spigot-api.jar https://cdn.getbukkit.org/spigot/spigot-1.16.5.jar
 
     - name: 디렉토리 준비
       run: mkdir -p build
